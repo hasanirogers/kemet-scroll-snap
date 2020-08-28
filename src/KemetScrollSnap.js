@@ -47,6 +47,13 @@ export class KemetScrollSnap extends LitElement {
 
         overflow-x: scroll;
       }
+
+      /* vertical */
+
+      :host([axis="vertical"]) ::slotted([slot="slides"]) {
+        display: block;
+        scroll-snap-type: y mandatory;
+      }
     `;
   }
 
@@ -85,6 +92,10 @@ export class KemetScrollSnap extends LitElement {
 
   firstUpdated() {
     this.setFocusedSlides();
+  }
+
+  updated() {
+    this.setVerticalAttribute();
   }
 
   render() {
@@ -160,5 +171,11 @@ export class KemetScrollSnap extends LitElement {
   focusSlide(index) {
     const activeSlide = this.querySelector(`kemet-scroll-snap-slide[index="${index}"]`);
     activeSlide.scrollIntoView({behavior: 'smooth'});
+  }
+
+  setVerticalAttribute() {
+    if (this.axis === 'vertical') {
+      document.querySelector('html').setAttribute('kemet-scroll-snap-axis', 'vertical')
+    }
   }
 }
