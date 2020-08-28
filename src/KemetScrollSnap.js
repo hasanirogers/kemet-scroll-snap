@@ -96,18 +96,21 @@ export class KemetScrollSnap extends LitElement {
 
   setFocusedSlides() {
     // reference: https://24ways.org/2019/beautiful-scrolling-experiences-without-libraries/
+    // reference: https://css-tricks.com/an-explanation-of-how-the-intersection-observer-watches/
     const slides = this.querySelectorAll('kemet-scroll-snap-slide');
+    const container = this.querySelector('[slot="slides"]');
 
     const options = {
+      root: container,
       rootMargin: '0px',
-      threshold: 0.25
+      threshold: 0.5
     }
 
     const callback = (entries) => {
       entries.forEach((entry) => {
         const { target } = entry;
 
-        if (entry.intersectionRatio >= 0.25) {
+        if (entry.intersectionRatio >= 0.5) {
           target.focused = true;
 
         } else {

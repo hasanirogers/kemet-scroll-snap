@@ -17,6 +17,7 @@ export class KemetScrollSnapSlide extends LitElement {
   static get styles() {
     return css`
       :host {
+        display: block;
         flex: 0 0 auto;
         width: var(--kememt-scroll-snap-slide-width, 100%);
         scroll-snap-align: var(--kemet-scroll-snap-slide-align, center);
