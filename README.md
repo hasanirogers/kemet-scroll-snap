@@ -1,19 +1,26 @@
 # \<kemet-scroll-snap>
 
-This webcomponent follows the [open-wc](https://github.com/open-wc/open-wc) recommendation.
+[Go here for docs](http://kemet.online/scrollsnap).
 
 ## Installation
 ```bash
-npm i kemet-scroll-snap
+npm i @kemet/kemet-scroll-snap
 ```
 
 ## Usage
-```html
-<script type="module">
-  import 'kemet-scroll-snap/kemet-scroll-snap.js';
-</script>
+```js
+import '@kemet/kemet-scroll-snap/kemet-scroll-snap.js';
+import '@kemet/kemet-scroll-snap-slide/kemet-scroll-snap-slide.js';
+```
 
-<kemet-scroll-snap></kemet-scroll-snap>
+```html
+<kemet-scroll-snap>
+  <div slot="slides">
+    <kemet-scroll-snap-slide>[your content here]</kemet-scroll-snap-slide>
+    <kemet-scroll-snap-slide>[your content here]</kemet-scroll-snap-slide>
+    <kemet-scroll-snap-slide>[your content here]</kemet-scroll-snap-slide>
+  </div>
+</kemet-scroll-snap>
 ```
 
 ## Linting with ESLint, Prettier, and Types
