@@ -51,7 +51,8 @@ export class KemetScrollSnap extends LitElement {
       /* vertical */
 
       :host([axis="vertical"]) ::slotted([slot="slides"]) {
-        display: block;
+        flex-direction: column;
+        overflow-x: hidden;
         scroll-snap-type: y mandatory;
       }
     `;

@@ -1,8 +1,8 @@
 {
-  "name": "kemet-scroll-snap",
-  "version": "0.0.0",
-  "description": "Webcomponent kemet-scroll-snap following open-wc recommendations",
-  "author": "kemet-scroll-snap",
+  "name": "@kemet/kemet-scroll-snap",
+  "version": "1.0.0",
+  "description": "A scroll-snap implementation for responsive sliders.",
+  "author": "Hasani Rogers <hasani.rogers@gmail.com>",
   "license": "MIT",
   "main": "index.js",
   "module": "index.js",

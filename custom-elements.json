@@ -3,28 +3,104 @@
   "tags": [
     {
       "name": "kemet-scroll-snap",
-      "description": "A component with a title and an action counter",
+      "description": "A scroll-snap implementation for responsive sliders.",
       "properties": [
         {
-          "name": "title",
+          "name": "axis",
           "type": "String",
-          "description": "The title of your component",
-          "default": "Hey there"
+          "description": "Determines the direction the component flows",
+          "default": "horizontal"
         },
         {
-          "name": "counter",
-          "type": "Number",
-          "description": "An action counter",
-          "default": 0
+          "name": "pagination",
+          "type": "String",
+          "description": "Detrmines where to display the paginator.",
+          "default": "bottom"
+        },
+        {
+          "name": "isTouchDevice",
+          "type": "Boolean",
+          "description": "Is set if touch capibilities are detected.",
+          "default": false
+        },
+        {
+          "name": "slides",
+          "type": "Array",
+          "description": "An array of objects containing info about the slides.",
+          "default": []
+        },
+        {
+          "name": "paginationIcon",
+          "type": "String",
+          "description": "An ascii symbol to use for the pagination pages.",
+          "default": "•"
         }
       ],
       "events": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "slides",
+          "description": "Place your slides here."
+        }
+      ],
       "cssProperties": [
         {
-          "name": "--kemet-scroll-snap-text-color",
-          "description": "Main Text Color",
-          "type": "Color"
+          "name": "--kemet-scroll-snap-gap",
+          "description": "Space between the slides. Default is: 0."
+        },
+        {
+          "name": "--kemet-scroll-snap-pagination-color",
+          "description": "Color of the paginator pages. Default is: #007dc1.)"
+        },
+        {
+          "name": "--kemet-scroll-snap-pagination-size",
+          "description": "Size of the paginator pages. Default is: 4rem."
+        },
+        {
+          "name": "--kemet-scroll-snap-pagination-shadow",
+          "description": "Shadow of the paginator pages. Default is: 1px 1px 1px rgba(0,0,0,0.5)"
+        },
+        {
+          "name": "--kemet-scroll-snap-pagination-gap",
+          "description": "Space between the paginator pages. Default is: 0.5rem."
+        },
+        {
+          "name": "--kemet-scroll-snap-pagination-topoffset",
+          "description": "Top offset of the paginator pages. Default is: -2.5rem."
+        }
+      ]
+    },
+    {
+      "name": "kemet-scroll-snap-slide",
+      "description": "A slide for kemet-scroll-snap.",
+      "properties": [
+        {
+          "name": "focused",
+          "type": "Boolean",
+          "description": "Is true when the slide is fully visible in it's container.",
+          "default": false
+        },
+        {
+          "name": "index",
+          "type": "String",
+          "description": "Identifies the slide.",
+          "default": "0"
+        }
+      ],
+      "events": [],
+      "slots": [
+        {
+          "description": "The contents of a slide."
+        }
+      ],
+      "cssProperties": [
+        {
+          "name": "--kememt-scroll-snap-slide-width",
+          "description": "The width of the slide. Default is: 100%."
+        },
+        {
+          "name": "--kemet-scroll-snap-slide-align",
+          "description": "The scroll-snap alignment. Default is: center.)"
         }
       ]
     }
