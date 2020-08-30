@@ -154,7 +154,7 @@ export class KemetScrollSnap extends LitElement {
 
   focusSlide(index) {
       const activeSlide = this.querySelector(`kemet-scroll-snap-slide[index="${index}"]`);
-      activeSlide.scrollIntoView({behavior: 'smooth'});
+      activeSlide.scrollIntoView({behavior: 'smooth', block: 'nearest'});
   }
 
   setVerticalAttribute() {

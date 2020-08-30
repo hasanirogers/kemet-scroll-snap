@@ -1,6 +1,6 @@
 {
   "name": "@kemet/kemet-scroll-snap",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A scroll-snap implementation for responsive sliders.",
   "author": "Hasani Rogers <hasani.rogers@gmail.com>",
   "license": "MIT",
