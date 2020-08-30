@@ -110,7 +110,7 @@
           "default": false
         },
         {
-          "name": "useNumberLabels",
+          "name": "useLabelPages",
           "type": "Boolean",
           "description": "If set to true, the pages in the pagination iterator will appear as the label set on the slide.",
           "default": false
