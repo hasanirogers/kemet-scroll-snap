@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <link href="https://unpkg.com/@kemet/kemet-styles@latest/dist/kemet.components.css" rel="stylesheet" type="text/css">
   <link href="style.css" rel="stylesheet" />
 </head>
 <body>
@@ -16,7 +17,7 @@
     render(
       html`
         <main>
-          <kemet-scroll-snap axis="vertical" pagination="none">
+          <kemet-scroll-snap axis="vertical">
             <div slot="slides">
               <kemet-scroll-snap-slide>
                 <h3>Heading 1</h3>
