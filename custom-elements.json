@@ -8,13 +8,13 @@
         {
           "name": "axis",
           "type": "String",
-          "description": "Determines the direction the component flows. Values include: (horizontal|vertical}",
+          "description": "Determines the direction the component flows. Values include: (horizontal|vertical)",
           "default": "horizontal"
         },
         {
           "name": "pagination",
           "type": "String",
-          "description": "Detrmines where to display the paginator. Values include: (top|right|bottom|left}",
+          "description": "Detrmines where to display the paginator. Values include: (top|right|bottom|left)",
           "default": "bottom"
         },
         {
@@ -83,7 +83,7 @@
         },
         {
           "name": "--kemet-scroll-snap-slide-align",
-          "description": "The scroll-snap alignment. Default is: center.)"
+          "description": "The scroll-snap alignment. Default is: center."
         }
       ]
     },
