@@ -10,6 +10,10 @@ export class KemetScrollSnapSlide extends LitElement {
       index: {
         type: String,
         reflect: true
+      },
+      label: {
+        type: String,
+        reflect: true
       }
     }
   }

@@ -14,31 +14,15 @@ export class KemetScrollSnap extends LitElement {
         flex-direction: row;
       }
 
-      :host([pagination="none"]) .pagination {
+      :host([pagination="none"]) ::slotted([slot="pagination"]) {
         display: none;
       }
 
-      :host([pagination="top"]) .pagination,
-      :host([pagination="left"]) .pagination {
+      :host([pagination="top"]) ::slotted([slot="pagination"]),
+      :host([pagination="left"]) ::slotted([slot="pagination"]) {
         order: -1;
       }
 
-      .pagination {
-        color: var(--kemet-scroll-snap-pagination-color, #007dc1);
-        font-size: var(--kemet-scroll-snap-pagination-size, 4rem);
-        text-shadow: var(--kemet-scroll-snap-pagination-shadow, 1px 1px 1px rgba(0,0,0,0.5));
-        margin: auto;
-        padding: 0;
-        display: flex;
-        gap: var(--kemet-scroll-snap-pagination-gap, 0.5rem);
-        position: relative;
-        top: var(--kemet-scroll-snap-pagination-topoffset, -2.5rem);
-        list-style: none;
-      }
-
-      .pagination li {
-        cursor: pointer;
-      }
 
       ::slotted([slot="slides"]) {
         display: flex;
@@ -89,6 +73,10 @@ export class KemetScrollSnap extends LitElement {
     this.isTouchDevice = 'ontouchstart' in document.documentElement;
     this.slides = [];
     this.paginationIcon = '•';
+
+    this.addEventListener('kemet-scroll-snap-focus', (event) => {
+      this.focusSlide(event.detail);
+    });
   }
 
   firstUpdated() {
@@ -102,7 +90,7 @@ export class KemetScrollSnap extends LitElement {
   render() {
     return html`
       <slot name="slides"></slot>
-      <ul class="pagination">${this.makePagination()}</ul>
+      <slot name="pagination"></slot>
     `;
   }
 
@@ -140,18 +128,6 @@ export class KemetScrollSnap extends LitElement {
     });
   }
 
-  makePagination() {
-    return this.slides.map((slide, index) => {
-      if (!slide.focused) {
-        return html`<li @click=${() => this.focusSlide(index)}>
-          ${this.paginationIcon}
-        </li>`;
-      }
-
-      return null;
-    });
-  }
-
   makeSlides() {
     const slides = [];
 
@@ -162,16 +138,23 @@ export class KemetScrollSnap extends LitElement {
 
       slides.push({
         id: index,
-        focused: slide.focused
+        focused: slide.focused,
+        label: slide.label
       });
     });
 
     this.slides = slides;
+
+    this.dispatchEvent(new CustomEvent('kemet-scroll-snap-make-slides', {
+      bubbles: true,
+      composed: true,
+      detail: this.slides
+    }))
   }
 
   focusSlide(index) {
-    const activeSlide = this.querySelector(`kemet-scroll-snap-slide[index="${index}"]`);
-    activeSlide.scrollIntoView({behavior: 'smooth'});
+      const activeSlide = this.querySelector(`kemet-scroll-snap-slide[index="${index}"]`);
+      activeSlide.scrollIntoView({behavior: 'smooth'});
   }
 
   setVerticalAttribute() {

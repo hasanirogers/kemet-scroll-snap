@@ -11,6 +11,9 @@ describe('KemetScrollSnap', () => {
           <kemet-scroll-snap-slide>[your content here]</kemet-scroll-snap-slide>
           <kemet-scroll-snap-slide>[your content here]</kemet-scroll-snap-slide>
         </div>
+        <div slot="pagination">
+          <kemet-scroll-snap-paginator></kemet-scroll-snap-paginator>
+        </div>
       </kemet-scroll-snap>
     `);
 
