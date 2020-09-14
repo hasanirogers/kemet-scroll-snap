@@ -9,6 +9,9 @@ export class KemetScrollSnapPaginator extends LitElement {
       icon: {
         type: String
       },
+      hideFocusedLinks: {
+        type: Boolean
+      },
       useNumberPages: {
         type: Boolean,
         reflect: true
@@ -25,6 +28,7 @@ export class KemetScrollSnapPaginator extends LitElement {
 
     this.slides = [];
     this.icon = '•';
+    this.hideFocusedLinks = false;
     this.useNumberPages = false;
     this.useLabelPages = false;
 
@@ -60,20 +64,22 @@ export class KemetScrollSnapPaginator extends LitElement {
 
     if (this.slides) {
       return this.slides.map((slide) => {
-        if (!slide.focused) {
-          // eslint-disable-next-line no-multi-assign
-          counter = counter += 1;
+        // eslint-disable-next-line no-multi-assign
+        counter = counter += 1;
 
+        if (slide.focused) {
           return html`
-            <li>
-              <a @click=${() => this.slideLink(slide.id)} aria-label="${slide.label}">
-                ${this.pageDisplay(slide, counter)}
-              </a>
-            </li>
-          `
+            <li><span>${this.pageDisplay(slide, counter)}</span></li>
+          `;
         }
 
-        return null;
+        return html`
+          <li>
+            <a @click=${() => this.slideLink(slide.id)} aria-label="${slide.label}">
+              ${this.pageDisplay(slide, counter)}
+            </a>
+          </li>
+        `;
       });
     }
 
