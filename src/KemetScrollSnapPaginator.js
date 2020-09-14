@@ -28,9 +28,13 @@ export class KemetScrollSnapPaginator extends LitElement {
     this.useNumberPages = false;
     this.useLabelPages = false;
 
-    this.closest('kemet-scroll-snap').addEventListener('kemet-scroll-snap-make-slides', (event) => {
-      this.slides = event.detail;
-    });
+    const scrollSnapElement = this.closest('kemet-scroll-snap');
+
+    if(scrollSnapElement) {
+      scrollSnapElement.addEventListener('kemet-scroll-snap-make-slides', (event) => {
+        this.slides = event.detail;
+      });
+    }
   }
 
   static get styles() {
