@@ -1,7 +1,5 @@
 # \<kemet-scroll-snap>
 
-[Go here for docs](http://kemet.online/scrollsnap).
-
 ## Installation
 ```bash
 npm i @kemet/kemet-scroll-snap
@@ -26,3 +24,6 @@ import '@kemet/kemet-scroll-snap/kemet-scroll-snap-paginator.js'; // optional
   </div>
 </kemet-scroll-snap>
 ```
+
+[Go here for docs](http://kemet.online/scrollsnap).
+
